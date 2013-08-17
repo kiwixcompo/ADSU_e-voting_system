@@ -1,1 +1,1 @@
-This is a system created to help automate the voting process
+This is a system created to help automate the voting process in Adamawa State University, Mubi
