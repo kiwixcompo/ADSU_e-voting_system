@@ -86,7 +86,8 @@
 		</p>
 
 		<p>
-			<?php echo form_submit('submit','Proceed'); ?> | <?php echo anchor('users/logout', 'Logout'); ?>
+			<?php echo form_submit('submit','Proceed'); ?> | <?php echo anchor('users/index', 'Back to home'); ?>
+
 		</p>
 
 		<?php echo form_close(); ?>

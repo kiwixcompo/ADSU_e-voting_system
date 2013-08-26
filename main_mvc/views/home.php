@@ -70,55 +70,7 @@
 <body>
 
 <div id="container">
-	<h2>Login Panel</h2>
-		<?php echo form_open(base_url() . 'users/login'); ?>
-
-			<ul>
-				<li>
-					<label>Registration Number</label>
-					
-					<?php 
-						$reg_attributes = ['name' => 'matric_no',
-										'id' => 'matric_no',
-										'required' => 'required',
-										'placeholder' => 'Enter Registration Number'];
-
-					 ?>
-					<p>
-						<?php echo form_input($reg_attributes); ?>
-					</p>
-				</li>
-
-				<li>
-					<label>Password</label>
-						<?php 
-							$password_attributes = ['name' => 'password',
-											'id' => 'password',
-											'required' => 'required',
-											'placeholder' => 'Enter Password'];
-
-						 ?>
-					<p>
-						<?php echo form_password($password_attributes); ?>
-					</p>
-				</li>
-				<li>
-					<?php echo form_submit(array('name'=>'submit'),'Login'); ?>
-				</li>
-			</ul>
-			
-			<ul>
-				<li>
-					<?php
-					if($this->session->flashdata('login_failure', FALSE)){
-						echo "Incorrect username or password";
-					}
-						 echo validation_errors();
-					 ?>
-				</li>
-			</ul>
-
-		<?php echo form_close(); ?>
+		<p> <?php echo anchor('users/view_login', 'Admin Panel'); ?> </p>
 		<?php echo anchor('users/voting_area', 'Start the voting session'); ?>
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 </div>

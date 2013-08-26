@@ -1,110 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap Admin</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<style type="text/css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>lib/bootstrap/css/bootstrap.css">
+    
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>stylesheets/theme.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>lib/font-awesome/css/font-awesome.css">
 
-	::selection{ background-color: #E13300; color: white; }
-	::moz-selection{ background-color: #E13300; color: white; }
-	::webkit-selection{ background-color: #E13300; color: white; }
+    <script src="<?php echo base_url(); ?>lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
+    <!-- Demo page code -->
 
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
+    <style type="text/css">
+        #line-chart {
+            height:300px;
+            width:800px;
+            margin: 0px auto;
+            margin-top: 1em;
+        }
+        .brand { font-family: georgia, serif; }
+        .brand .first {
+            color: #ccc;
+            font-style: italic;
+        }
+        .brand .second {
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
 
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
 
-	#body{
-		margin: 0 15px 0 15px;
-	}
-	
-	p.footer{
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-	
-	#container{
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		text-align: center;
-		-webkit-box-shadow: 0 0 8px #D0D0D0;
-	}
-	li {
-		list-style: none;
-	}
-	</style>
-</head>
-<body>
+  <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+  <!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
+  <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
+  <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> 
+  <body class=""> 
+  <!--<![endif]-->
+    
+    <div class="navbar">
+        <div class="navbar-inner">
+                <ul class="nav pull-right">
+                    
+                </ul>
+                <a class="brand" href="index.html"><span class="first">ADSU</span> <span class="second">e-Voting System</span></a>
+        </div>
+    </div>
+    
 
-<div id="container">
-	<h1>Create PIN</h1>
 
-	<p><small>Note: <em>Each generated pin has a length of 6 numbers</em></small></p>
-	<div id="body">
-	<?php if(! empty($message)) : ?>
-		<div class="info-msg"><p><?php echo $message; ?></p></div>
-	<?php endif; ?>
-	
-	<?php echo form_open(); ?>
-	<p>
-		<label for="number_of_pin">Total PIN(s)</label>
-		<?php echo form_input('number_of_pin',set_value('number_of_pin'),'id="number_of_pin"'); ?>&nbsp;<?php echo form_submit('pin','Generate PIN'); ?>
-	</p>
-	<?php echo form_close(); ?>
-	<?php echo anchor('pins/manage_pin', 'Back'); ?>
-	</div>
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
+    
+
+    
+        <div class="row-fluid">
+    <div class="dialog">
+        <div class="block">
+            <p class="block-heading">Create PINS</p>
+            <div class="block-body">
+            	<?php if(! empty($message)) : ?>
+					<div class="info-msg"><p><?php echo $message; ?></p></div>
+				<?php endif; ?>
+                <?php echo form_open('pins/generate_pins'); ?>
+                    <label for="number_of_pin">Total PIN(S) to be generated</label>
+                     <?php echo form_input('number_of_pin', set_value('number_of_pin'), 'class = "span12"'); ?>
+                    <input type="submit" name="pin" class="btn btn-primary pull-right" value="Generate PIN(S)">
+                    <div class="clearfix"></div>
+                <?php echo form_close(); ?>
+            </div>
+        </div>
+        <a><small>Note: <em>Each generated pin has a length of 6 numbers</em></small></a>&nbsp;<a href="<?php echo base_url(); ?>users/main_page" class="pull-right">Back</a>
+    </div>
 </div>
 
-</body>
+
+    
+
+
+    <script src="<?php echo base_url(); ?>lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script>
+    
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

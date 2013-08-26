@@ -16,6 +16,24 @@
 				return FALSE;
 			}
 			}
+		public function old_password(){
+
+			$query = $this->db->where('matric_no',$this->session->userdata('matric_no'))->limit(1)->get('users');
+			if ($query->num_rows()>0) {
+                $old_password = $query->row();
+                
+				return $old_password->password;
+			} else {
+				return FALSE;
+			}
+			}
+		public function change_password($id, $new_password){
+            $this->db->where('id', $id)->update('users', array('password' => md5($new_password)));
+            if ($this->db->affected_rows() > 0) {
+                return TRUE;
+            }
+            return FALSE;
+        }
 
 		public function isLoggedIn(){
 			if($this->session->userdata('loggedIn')){

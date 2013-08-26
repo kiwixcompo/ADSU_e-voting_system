@@ -20,19 +20,21 @@ class Users extends CI_Controller {
 		$this->load->view('home');
 	}
 	
-
+	public function view_login(){
+		$this->load->view('login');
+	}
 	public function login(){
 		$this->form_validation->set_rules('matric_no', 'Registration Number', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 		if ($this->form_validation == FALSE) {
-			$this->index();
+			$this->view_login();
 		}else{
 			$matric_no = $this->input->post('matric_no');
 			$password = $this->input->post('password');
 			$log_me = $this->user_model->check_login($matric_no, $password);
 			if (! $log_me) {
 				$this->session->set_flashdata('login_failure', TRUE);
-				redirect('users/index');
+				redirect('users/view_login');
 			}else{
 				$this->session->set_userdata('login_success', TRUE);
 				$this->session->set_userdata('log_me', $log_me);
@@ -194,9 +196,41 @@ class Users extends CI_Controller {
 		}
 		}
 
+	public function change_password(){
+        $this->load->view('change_password');
+    }
+
+    public function change_p(){
+    	$this->form_validation->set_rules('old_password', 'Old Password', 'required');
+        $this->form_validation->set_rules('new_password','Password','required');
+        $this->form_validation->set_rules('confirm_new_password','Confirm Password','required|matches[new_password]');
+        if( $this->form_validation->run() === false ){
+            $this->change_password();
+        } else {
+        	$old_password = $this->input->post('old_password');
+        	$old_db_password = $this->user_model->old_password();
+
+        	if ($old_db_password != md5($old_password)) {
+        		$this->session->set_flashdata('password_error', 'Old password is incorrect');
+        		redirect('users/change_password');
+        	}else{
+            $new_password = $this->input->post('new_password');
+            $id = $this->input->post('id');
+            $change_password = $this->user_model->change_password($id,$new_password);
+            }
+            if($change_password == FALSE){
+                $this->session->set_flashdata('message', "<p class=\"error\">An error occurred, please try again!</p>");
+                redirect('users/change_password');
+            } else {
+                $this->session->set_flashdata('message', "<p class=\"success\">Successfully changed password</p>");
+                redirect('users/change_password');
+            }
+        }
+    }
+
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect('users/index');
+		redirect('users/view_login');
 	}
 }
 

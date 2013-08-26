@@ -7,6 +7,10 @@
         $this->load->model('candidate_model');
     	}
 
+    	public function add_new_category(){
+    		$this->load->view('new_category');
+    	}
+
 		public function manage_categories(){
 		/*if($this->user_model->isLoggedIn() === FALSE){
 			$this->session->set_flashdata('message', 'You need to be logged in to access that area!');
@@ -45,7 +49,7 @@
 				$this->manage_categories();
 			} else {
 				if($this->candidate_model->updateCategory($this->input->post('id'),$this->input->post('post_name'))){
-					$this->session->set_flashdata('message', 'Post updated successfully');
+					$this->session->set_flashdata('message', 'Category updated successfully');
 					redirect('candidates/manage_categories');	
 				} else {
 					$this->session->set_flashdata('message', 'An error occurred, please try again');
@@ -64,7 +68,7 @@
 
 	public function delete_category($category_id){
 		if($this->candidate_model->deleteCategory($category_id)){
-			$this->session->set_flashdata('message', 'Post deleted successfully');
+			$this->session->set_flashdata('message', 'Category deleted successfully');
 			redirect('candidates/manage_categories');	
 		} else {
 			$this->session->set_flashdata('message', 'An error occurred, please try again');
@@ -81,7 +85,9 @@
 		$v_data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 		$this->load->view('manage_candidates', $v_data);				
 	}
-
+	public function add_new(){
+		$this->load->view('new_candidates');
+	}
 	public function new_nominees(){
 		if($this->input->post('submit_nominee')){
 			$this->form_validation->set_rules('surname', 'Surname', 'trim|required');
