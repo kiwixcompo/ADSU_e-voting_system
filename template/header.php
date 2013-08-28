@@ -96,7 +96,7 @@
 
         <a href="<?php echo base_url(); ?>candidates/manage_candidates" class="nav-header" ><i class="icon-question-sign"></i>Candidates</a>
         <a href="<?php echo base_url(); ?>candidates/manage_categories" class="nav-header" ><i class="icon-comment"></i>Voting Categories</a>
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>Results<span class="label label-info">+3</span></a>
+        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>Results<span class="label label-info">+1</span></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
             <li><a href="<?php echo base_url()  . 'results/Election_results'; ?>">Manage Election Results</a></li>
         </ul>

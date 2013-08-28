@@ -21,7 +21,7 @@
 </div>
 <div class="well">
 	<?php if(! empty($message)) : ?>
- <!--  <div class="alert alert-error">
+  <!-- <div class="alert alert-error">
         <button type="button" class="close" data-dismiss="alert">×</button>
         
   </div> -->
@@ -53,7 +53,7 @@
 			            <td><img src="<?php echo base_url() . 'uploads/images/' . $nominee['passport']; ?>" alt="Passport" style="width: 90px; height:90px;"></td>
 			            <td>
 			            <a href="<?php echo base_url() . 'candidates/edit_nominee/' . $nominee['id'] ?>"><i class="icon-pencil"></i></a>
-              			<a href="<?php echo base_url() . 'candidates/delete_nominee/' . $nominee['id'] ?>" onclick="return confirm('Click OK to confirm removal of this candidate');" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+              			<a href="<?php echo base_url() . 'candidates/delete_nominee/' . $nominee['id'] ?>" onclick="return confirm('Click OK to confirm removal of this candidate');"><i class="icon-remove"></i></a>
               			</td>
 		            </tr>
 				<?php endforeach; ?>
