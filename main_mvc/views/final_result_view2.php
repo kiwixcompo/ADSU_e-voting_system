@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>AeS Admin</title>
+	<title>Welcome to Codeigniter</title>
 	<link type="text/css" href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" />
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.js"></script>	
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/highcharts.js"></script>	
@@ -92,5 +92,7 @@
 	</div>
 	<br />
 </div>
+
+
 </body>
 </html>

@@ -15,6 +15,10 @@ class Users extends CI_Controller {
 	    }
     }
 
+    public function about(){
+    	$this->load->view('about');
+    }
+
 	public function index()
 	{
 		$this->load->view('home');

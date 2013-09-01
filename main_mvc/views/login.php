@@ -108,7 +108,7 @@
                 <?php echo form_close(); ?>
             </div>
         </div>
-        <p class="pull-right" style=""><a href="http://www.kiwixcompo.com" target="blank">Williams Onen</a></p>
+        <p class="pull-right" style=""><a href="http://www.kiwixcompo.com" target="blank">by Williams Alfred Onen</a></p>
         <p><?php echo anchor('users/index', 'Back to home'); ?></p>
     </div>
 </div>

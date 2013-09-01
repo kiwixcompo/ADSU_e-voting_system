@@ -8,20 +8,12 @@
 	    	}*/
 
 			public function Election_results(){
-				/*if($this->user_model->isLoggedIn() === FALSE){
-					$this->session->set_flashdata('message', 'You need to be logged in to access that area!');
-					redirect('/');
-				}*/
 				$v_data['resultData'] = $this->candidate_model->getCategory();
 				$v_data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 				$this->load->view('manage_results', $v_data);
 		}
 
 			public function view_results($cat_id){
-				/*if($this->users_model->isLoggedIn() === FALSE){
-					$this->session->set_flashdata('message', 'You need to be logged in to access that area!');
-					redirect('/');
-				}*/
 				$resultData = $this->result_model->getResults($cat_id);
 				if($resultData !== FALSE){
 					$resultCount = $this->result_model->getOverallVotesByCategory($cat_id);
