@@ -169,13 +169,13 @@ class Users extends CI_Controller {
 				$v_data['votingCategory'] = $this->user_model->getVotingCategory($cat_id);
 				$v_data['category'] = $this->user_model->getCategoryName($cat_id);
 				$v_data['cat_id'] = $cat_id;
-				$v_data['message'] = 'Invalid PIN!';
+				$v_data['message1'] = 'Invalid PIN!';
 				$this->load->view('vote_candidate', $v_data);
 			} else if($this->user_model->hasVoted($pinNo,$cat_id) === TRUE){
 				$v_data['votingCategory'] = $this->user_model->getVotingCategory($cat_id);
 				$v_data['category'] = $this->user_model->getCategoryName($cat_id);
 				$v_data['cat_id'] = $cat_id;
-				$v_data['message'] = 'You have already voted for this category';
+				$v_data['message1'] = 'You have already voted for this category';
 				$this->load->view('vote_candidate', $v_data);
 			} else {
 				$v_data['votingCategory'] = $this->user_model->getVotingCategory($cat_id);
@@ -183,10 +183,10 @@ class Users extends CI_Controller {
 				$v_data['cat_id'] = $cat_id;
 				if($this->user_model->saveVote($pinNo, $nomineeId, $cat_id) === TRUE){
 					$nominee = $this->candidate_model->getNominee($nomineeId);
-					$v_data['message'] = 'Your vote for <strong>' . $nominee[0]['first_name'] .' '. $nominee[0]['surname'] . '</strong> has been recorded.';
+					$v_data['message2'] = 'Your vote for <strong>' . $nominee[0]['first_name'] .' '. $nominee[0]['surname'] . '</strong> has been recorded.';
 					
 				} else {
-					$v_data['message'] = 'An error occurred,we could not save your vote';
+					$v_data['message1'] = 'An error occurred,we could not save your vote';
 				}
 				$this->load->view('vote_candidate', $v_data);
 			}

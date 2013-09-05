@@ -31,7 +31,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th>#</th>
+          <!-- <th>#</th> -->
           <th>Category</th>
           <th style="width: 26px;">Actions</th>
         </tr>
@@ -40,7 +40,7 @@
       	<?php if(! empty($categoryData) && is_array($categoryData)) : ?>
 		<?php foreach($categoryData as $category) : ?>
         <tr>
-            <td><?php echo $category['id']; ?></td>
+            <?php /*echo $category['id'];*/ ?>
 			<td><?php echo strtoupper(strtolower($category['post_name'])); ?></td>
 			<td>
 				<a href="<?php echo base_url() . 'candidates/edit_category/' . $category['id'] ?>"><i class="icon-pencil"></i></a>

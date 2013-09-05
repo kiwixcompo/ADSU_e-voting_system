@@ -72,14 +72,15 @@
     
         <div class="row-fluid">
     <div class="dialog">
+        <?php if(! empty($message)) : ?>
+            <div class="info-msg"><a><small><?php echo $message; ?></small></a></div>
+        <?php endif; ?>
         <div class="block">
             <p class="block-heading">Create PINS</p>
             <div class="block-body">
-            	<?php if(! empty($message)) : ?>
-					<div class="info-msg"><p><?php echo $message; ?></p></div>
-				<?php endif; ?>
                 <?php echo form_open('pins/generate_pins'); ?>
                     <label for="number_of_pin">Total PIN(S) to be generated</label>
+                    	
                      <?php echo form_input('number_of_pin', set_value('number_of_pin'), 'class = "span12"'); ?>
                     <input type="submit" name="pin" class="btn btn-primary pull-right" value="Generate PIN(S)">
                     <div class="clearfix"></div>
