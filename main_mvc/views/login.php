@@ -99,6 +99,11 @@
                     <input type="submit" name="submit" class="btn btn-primary pull-right" value="Login">
                     <label class="remember-me"><input type="checkbox"> Remember me</label>
                     <div class="clearfix"></div>
+                    <?php 
+                        if (!empty($notification)){
+                            echo $notification;
+                        }
+                     ?>
                     <?php
 					if($this->session->flashdata('login_failure', FALSE)){
 						echo "Incorrect username or password";

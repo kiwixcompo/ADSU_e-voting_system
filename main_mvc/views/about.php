@@ -39,6 +39,10 @@
 								<li class="divider-vertical"></li>
 								<li><?php echo anchor('users/view_login', 'Admin Panel'); ?></li>
 								<li class="divider-vertical"></li>
+								<li>
+									<?php echo anchor('users/user_manual', 'User Manual'); ?>
+								</li>
+								<li class="divider-vertical"></li>
 							</ul>
 						</div>
 				</nav>

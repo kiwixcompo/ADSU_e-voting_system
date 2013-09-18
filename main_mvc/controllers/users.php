@@ -24,6 +24,10 @@ class Users extends CI_Controller {
 		$this->load->view('home');
 	}
 	
+	public function user_manual(){
+		$this->load->view('user_manual');
+	}
+
 	public function view_login(){
 		$this->load->view('login');
 	}

@@ -42,6 +42,17 @@
 	}
 
 	public function view_pins(){
+		/*session_start();
+		$_SESSION['matric_no'] = 'admin';
+		if (!(isset($_SESSION['matric_no'] ))) {
+		session_destroy();
+		$this->session->set_flashdata('notification', 'You need to be logged in to view this page');
+		redirect('users/view_login');
+		//header("Location: index.php");
+		exit;
+		}
+		*/
+
 		$v_data['layout'] = 'view_pins_v';
 		$v_data['pins'] = $this->pin_model->getPinNos();
 		$v_data['association_name'] = 'ADSU e-Voting';
